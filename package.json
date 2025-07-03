@@ -1,0 +1,10 @@
+{
+  "name": "web-complete-02",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.7"
+  }
+}
