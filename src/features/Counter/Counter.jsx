@@ -3,8 +3,8 @@ import clsx from 'clsx';
 
 import styles from './Counter.module.css';
 
-export function Counter() {
-  const [count, setCount] = useState(0);
+export function Counter({initialCount = 0, diff = 1}) {
+  const [count, setCount] = useState(initialCount);
 
   // let cls = '';
   // if(count > 0) {
@@ -22,8 +22,8 @@ export function Counter() {
   //   }
   // }
 
-  function handleClick(diff = 1) {
-    setCount(count + diff);
+  function handleClick(d) {
+    setCount(count + d);
   }
 
   return (
@@ -34,10 +34,10 @@ export function Counter() {
         {count}
       </output>
       <div>
-        <button data-type="decrement" onClick={() => handleClick(-1)}>
+        <button data-type="decrement" onClick={() => handleClick(-diff)}>
           -
         </button>
-        <button data-type="increment" onClick={() => handleClick(1)}>
+        <button data-type="increment" onClick={() => handleClick(diff)}>
           +
         </button>
       </div>
