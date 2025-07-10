@@ -22,6 +22,17 @@ export function Counter({initialCount = 0, diff = 1}) {
   //   }
   // }
 
+  // const arr = [4, 5, 6];
+  // for(let i = 0; i < arr.length; i++) {
+  //   const num = arr[i];
+
+  //   console.log(num);
+  // }
+
+  // for(const num of arr) {
+  //   console.log(num);
+  // }
+
   function handleClick(d) {
     setCount(count + d);
   }
