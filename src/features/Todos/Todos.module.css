@@ -1,0 +1,27 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+
+  & > button {
+    --text-color: var(--danger-color);
+
+    padding: .2rem .2rem 0;
+    
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 1.6rem;
+
+    &:hover {
+      --text-color: color-mix(in srgb, var(--danger-color) 70%, #000);
+    }
+  }
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

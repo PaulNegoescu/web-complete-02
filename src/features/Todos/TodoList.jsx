@@ -1,31 +1,29 @@
 import { useEffect, useState } from 'react';
+import { AddTodoForm } from './AddTodoForm';
+import { TodoItem } from './TodoItem';
+
+import styles from './Todos.module.css';
+
+const apiUrl = import.meta.env.VITE_API_URL;
 
 export function TodoList() {
   const [todos, setTodos] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:3080/todos')
+    fetch(`${apiUrl}/todos`)
       .then((res) => res.json())
       .then((data) => setTodos(data));
   }, []);
 
-  function handleAddTodo(e) {
-    e.preventDefault();
+  function handleAddTodo(newTodo) {
+    // const updatedTodos = [...todos];
+    // updatedTodos.push(newlyAddedTodo);
+    // setTodos(updatedTodos);
+    setTodos([...todos, newTodo]);
+  }
 
-    const data = new FormData(e.target);
-    const newTodo = {
-      title: data.get('title'),
-      userId: 1,
-      completed: false,
-    };
-
-    fetch('http://localhost:3080/todos', {
-      method: 'POST',
-      body: JSON.stringify(newTodo),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+  function handleDelete(todo) {
+    setTodos(todos.filter((t) => t !== todo))
   }
 
   // if(!todos) {
@@ -35,16 +33,10 @@ export function TodoList() {
   return (
     <>
       <h1>Todos</h1>
-      <form onSubmit={handleAddTodo}>
-        <label htmlFor="title">What do you want to do?</label>
-        <div>
-          <input type="text" name="title" id="title" />
-          <button type="submit">Add Todo Item</button>
-        </div>
-      </form>
+      <AddTodoForm updateTodoList={handleAddTodo} />
       {!todos && <strong>Loading ...</strong>}
-      <ul>
-        {todos && todos.map((todo) => <li key={todo.id}>{todo.title}</li>)}
+      <ul className={styles.list}>
+        {todos && todos.map((todo) => <TodoItem key={todo.id} todo={todo} onDelete={handleDelete} />)}
       </ul>
     </>
   );
