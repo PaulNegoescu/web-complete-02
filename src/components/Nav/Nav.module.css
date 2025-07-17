@@ -1,0 +1,24 @@
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.mainMenu {
+  display: flex;
+  gap: 1rem;
+
+  margin: 0;
+
+  list-style: none;
+
+  & a {
+    text-decoration: none;
+
+    &:hover,
+    &.active,
+    &:active {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+  }
+}
