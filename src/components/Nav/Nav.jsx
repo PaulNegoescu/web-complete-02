@@ -16,6 +16,7 @@ export function Nav() {
         <li><BrandNavLink to="/">Home</BrandNavLink></li>
         <li><BrandNavLink to="/todos">Todos</BrandNavLink></li>
         <li><BrandNavLink to="/counter">Counter</BrandNavLink></li>
+        <li><BrandNavLink to="/boardgames">Boardgames</BrandNavLink></li>
         {!user && (
           <>
             <li className={styles.pushRight}><BrandNavLink to="/register">Register</BrandNavLink></li>

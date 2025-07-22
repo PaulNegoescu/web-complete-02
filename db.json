@@ -10799,6 +10799,13 @@
       "minAge": "1",
       "userId": 1,
       "id": 288
+    },
+    {
+      "name": "Test curs edited",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cat_August_2010-4.jpg/1920px-Cat_August_2010-4.jpg",
+      "description": "dasdasdas as dasd a",
+      "userId": 1,
+      "id": 289
     }
   ]
 }
