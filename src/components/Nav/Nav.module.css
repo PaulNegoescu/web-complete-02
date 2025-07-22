@@ -5,14 +5,17 @@
 
 .mainMenu {
   display: flex;
-  gap: 1rem;
+  flex-grow: 1;
 
   margin: 0;
 
   list-style: none;
 
   & a {
+    display: inline-block;
+  
     text-decoration: none;
+    padding: 0.5rem;
 
     &:hover,
     &.active,
@@ -21,4 +24,12 @@
       text-decoration: underline;
     }
   }
+}
+
+.pushRight {
+  margin-inline-start: auto;
+}
+
+.highlight {
+  background-color: yellow;
 }

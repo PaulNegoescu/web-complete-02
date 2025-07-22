@@ -1,19 +1,36 @@
 import { Link, NavLink } from 'react-router';
-import logo from '../../assets/logo.png';
+import { BrandNavLink } from './BrandNavLink';
+import { useAuthContext } from '../../features/Auth/AuthContext';
 
-import clsx from 'clsx';
+import logo from '../../assets/logo.png';
 import styles from './Nav.module.css';
 
 export function Nav() {
+  const { user, logout } = useAuthContext();
   return (
     <nav className={styles.nav}>
       <Link to="/">
         <img src={logo} alt="Scoala informala logo" width="150" />
       </Link>
       <menu className={styles.mainMenu}>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/todos" className={({isActive}) => clsx({ [styles.active]: isActive})}>Todos</NavLink></li>
-        <li><NavLink to="/counter">Counter</NavLink></li>
+        <li><BrandNavLink to="/">Home</BrandNavLink></li>
+        <li><BrandNavLink to="/todos">Todos</BrandNavLink></li>
+        <li><BrandNavLink to="/counter">Counter</BrandNavLink></li>
+        {!user && (
+          <>
+            <li className={styles.pushRight}><BrandNavLink to="/register">Register</BrandNavLink></li>
+            <li><BrandNavLink to="/login">Login</BrandNavLink></li>
+          </>
+        )}
+        {user && (
+          <li className={styles.pushRight}>
+            Welcome, {user.firstName}!
+            <a href="/" onClick={(e) => {
+              e.preventDefault(); 
+              logout();
+            }}>Logout</a>
+          </li>
+        )}
       </menu>
     </nav>
   )

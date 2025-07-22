@@ -1,0 +1,71 @@
+.brandForm {
+  display: grid;
+  align-items: center;
+  gap: .5rem;
+  grid-template-columns: 150px 1fr;
+
+  & label {
+    justify-self: end;
+  }
+
+  & input:not([type=checkbox], [type=radio], [type=color]) {
+    justify-self: start;
+
+    min-width: 50%;
+
+    padding: .5rem;
+
+    border: 1px solid #acacac;
+    border-radius: 3px;
+
+    &:focus-visible {
+      outline: 2px solid var(--primary-color);
+      outline-offset: 1px;
+    }
+  }
+}
+
+.inputError {
+  margin: 0;
+
+  color: #c00;
+}
+
+.fullGridWidth {
+  grid-column: 1 / -1;
+}
+
+.inputError,
+.secondGridColumn {
+  grid-column-start: 2;
+}
+
+.startOfColumn {
+  justify-self: start;
+}
+
+.btn {
+  --text-color: var(--primary-accent-color);
+  --border-color: var(--text-color);
+  --bg-color: var(--primary-color);
+
+  padding: .5rem 1.4rem;
+
+  background: var(--bg-color);
+  box-shadow: inset 2px -2px 5px #00000099;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+
+  &:hover {
+    --bg-color: color-mix(in srgb, var(--primary-color) 90%, #000);
+  }
+
+  &:active {
+    --bg-color: color-mix(in srgb, var(--primary-color) 75%, #000);
+    box-shadow: inset -2px 2px 5px #00000099;
+  }
+}

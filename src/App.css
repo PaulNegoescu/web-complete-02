@@ -1,6 +1,7 @@
 :root {
   --danger-color: rgb(248, 64, 3);
   --primary-color: #d16eff;
+  --primary-accent-color: #390054;
 }
 
 html {
